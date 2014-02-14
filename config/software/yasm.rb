@@ -1,7 +1,7 @@
 name       "yasm"
 version    "1.2.0"
 source :url => "http://www.tortall.net/projects/yasm/releases/#{name}-#{version}.tar.gz",
-       :md5 => "24cfc0686cf5350dd1305c4d905eb55a6"
+       :md5 => "4cfc0686cf5350dd1305c4d905eb55a6"
 
 relative_path "#{name}-#{version}"
 
