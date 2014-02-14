@@ -4,6 +4,7 @@ source :url => "http://www.ffmpeg.org/releases/ffmpeg-#{version}.tar.gz",
        :md5 => "2b3bf6a2e1596e337f40bc545d3ef3e4"
 
 dependency  "yasm"
+dependency  "zlib"
 
 relative_path "#{name}-#{version}"
 
@@ -19,6 +20,7 @@ env = {
 
 build do
   configure_command = ["./configure",
+                      "--enable-nonfree",
                       "--prefix=#{install_dir}/embedded",
                       "--yasmexe=#{install_dir}/embedded/bin/yasm"]
   make_binary = 'make'
