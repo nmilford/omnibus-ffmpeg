@@ -17,9 +17,10 @@ env = {
   "LD_RUN_PATH" => libdir
 }
 
-
 build do
-  configure_command = ["./configure", "--prefix=#{install_dir}/embedded"]
+  configure_command = ["./configure",
+                      "--prefix=#{install_dir}/embedded",
+                      "--yasmexe=#{install_dir}/embedded/bin/yasm"]
   make_binary = 'make'
   command configure_command.join(" ")
   command "#{make_binary} -j #{max_build_jobs}", :env => env
