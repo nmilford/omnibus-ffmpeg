@@ -1,15 +1,12 @@
-name       "ffmpeg"
-version    "2.1.3"
-source :url => "http://www.ffmpeg.org/releases/ffmpeg-#{version}.tar.gz",
-       :md5 => "2b3bf6a2e1596e337f40bc545d3ef3e4"
-
-dependency  "yasm"
+name       "yasm"
+version    "1.2.0"
+source :url => "http://www.tortall.net/projects/yasm/releases/#{name}-#{version}.tar.gz",
+       :md5 => "24cfc0686cf5350dd1305c4d905eb55a6"
 
 relative_path "#{name}-#{version}"
 
 prefix="#{install_dir}/embedded"
 libdir="#{prefix}/lib"
-
 
 env = {
   "LDFLAGS" => "-L#{libdir} -I#{prefix}/include",
@@ -19,7 +16,8 @@ env = {
 
 
 build do
-  configure_command = ["./configure", "--prefix=#{install_dir}/embedded"]
+  configure_command = ["./configure",
+                       "--prefix=#{install_dir}/embedded"]
   make_binary = 'make'
   command configure_command.join(" ")
   command "#{make_binary} -j #{max_build_jobs}", :env => env
